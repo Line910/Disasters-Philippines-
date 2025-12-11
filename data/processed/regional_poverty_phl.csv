@@ -1,0 +1,55 @@
+region,year,poverty_women,poverty_children
+Bangsamoro Autonomous Region in Muslim Mindanao (BARMM) including Cotabato City,2018,60.3,67.2
+Bangsamoro Autonomous Region in Muslim Mindanao (BARMM) including Cotabato City,2021,35.6,42.4
+Bangsamoro Autonomous Region in Muslim Mindanao (BARMM) including Cotabato City,2023,31.8,40.1
+Cordillera Administrative Region (CAR),2018,11.9,16.5
+Cordillera Administrative Region (CAR),2021,10.3,13.7
+Cordillera Administrative Region (CAR),2023,7.1,10.2
+MIMAROPA Region,2018,15.2,21.0
+MIMAROPA Region,2021,21.8,29.5
+MIMAROPA Region,2023,23.9,33.0
+National Capital Region (NCR),2018,2.3,4.3
+National Capital Region (NCR),2021,3.6,6.3
+National Capital Region (NCR),2023,1.9,3.6
+Negros Island Region (NIR),2018,21.1,29.4
+Negros Island Region (NIR),2021,23.9,33.4
+Negros Island Region (NIR),2023,28.7,40.7
+Region I (Ilocos Region),2018,10.1,15.3
+Region I (Ilocos Region),2021,14.6,21.4
+Region I (Ilocos Region),2023,12.5,19.6
+Region II (Cagayan Valley),2018,16.2,23.0
+Region II (Cagayan Valley),2021,15.5,21.4
+Region II (Cagayan Valley),2023,10.3,15.6
+Region III (Central Luzon),2018,7.0,11.2
+Region III (Central Luzon),2021,11.9,18.0
+Region III (Central Luzon),2023,8.3,13.5
+Region IV-A (CALABARZON),2018,7.2,11.4
+Region IV-A (CALABARZON),2021,10.7,16.4
+Region IV-A (CALABARZON),2023,8.0,13.4
+Region IX (Zamboanga Peninsula),2018,32.6,39.9
+Region IX (Zamboanga Peninsula),2021,29.7,38.1
+Region IX (Zamboanga Peninsula),2023,31.2,39.9
+Region V (Bicol Region),2018,26.4,35.4
+Region V (Bicol Region),2021,30.5,39.9
+Region V (Bicol Region),2023,28.3,37.9
+Region VI (Western Visayas),2018,13.9,20.6
+Region VI (Western Visayas),2021,17.1,25.1
+Region VI (Western Visayas),2023,13.8,21.2
+Region VII (Central Visayas),2018,15.7,22.6
+Region VII (Central Visayas),2021,27.8,36.9
+Region VII (Central Visayas),2023,17.8,25.7
+Region VIII Eastern Visayas),2018,30.3,40.0
+Region VIII Eastern Visayas),2021,29.3,39.0
+Region VIII Eastern Visayas),2023,27.9,37.7
+Region X (Northern Mindanao),2018,22.9,31.6
+Region X (Northern Mindanao),2021,25.8,35.6
+Region X (Northern Mindanao),2023,24.9,35.0
+Region XI (Davao Region),2018,19.0,26.9
+Region XI (Davao Region),2021,17.1,24.2
+Region XI (Davao Region),2023,16.2,24.2
+Region XIII (Caraga),2018,30.4,39.8
+Region XIII (Caraga),2021,33.6,44.1
+Region XIII (Caraga),2023,21.0,29.2
+"excluding Cotabato City""",2018,26.9,35.0
+"excluding Cotabato City""",2021,27.7,36.9
+"excluding Cotabato City""",2023,23.0,32.1

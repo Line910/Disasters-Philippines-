@@ -1,0 +1,147 @@
+region,year,typhoon_count,flood_count,earthquake_count,total_deaths,total_affected,total_damages,severe_event,haiyan_dummy
+Bangsamoro Autonomous Region in Muslim Mindanao (BARMM),2022,0,1,0,3.0,1955.0,0.0,0,0
+Cordillera Administrative Region (CAR),2007,1,0,0,8.0,2000.0,0.0,0,0
+Cordillera Administrative Region (CAR),2008,1,0,0,37.0,46132.0,7420.0,0,0
+MIMAROPA Region,2023,1,0,0,39.0,5385237.0,284256.0,0,0
+MIMAROPA Region,2024,1,0,0,53.0,6498934.0,211000.0,0,0
+National Capital Region (NCR),2020,1,0,0,111.0,514909.0,421000.0,0,0
+Region I (Ilocos Region),2007,0,1,0,0.0,33571.0,0.0,0,0
+Region I (Ilocos Region),2008,1,0,0,10.0,22081.0,40.0,0,0
+Region I (Ilocos Region),2012,1,0,0,11.0,5607.0,99.0,0,0
+Region I (Ilocos Region),2015,1,0,0,0.0,55567.0,2218.0,0,0
+Region I (Ilocos Region),2018,1,0,0,84.0,3800138.0,32033.0,0,0
+Region I (Ilocos Region),2022,0,0,1,10.0,502856.0,151000.0,0,0
+Region II (Cagayan Valley),2006,2,0,0,43.0,66680.0,138000.0,0,0
+Region II (Cagayan Valley),2007,1,0,0,8.0,33884.0,2971.0,0,0
+Region II (Cagayan Valley),2008,2,0,0,40.0,460593.0,34017.0,0,0
+Region II (Cagayan Valley),2013,1,0,0,4.0,220443.0,4729.0,0,0
+Region II (Cagayan Valley),2015,3,0,0,47.0,333006.0,1530647.0,1,0
+Region II (Cagayan Valley),2016,1,0,0,0.0,16648.0,4913.0,0,0
+Region II (Cagayan Valley),2019,2,0,0,67.0,3299246.0,393162.0,0,0
+Region II (Cagayan Valley),2022,0,0,1,0.0,147422.0,1400.0,0,0
+Region III (Central Luzon),2004,1,0,0,29.0,2014.0,0.0,0,0
+Region III (Central Luzon),2006,4,0,0,52.0,980663.0,10193.0,0,0
+Region III (Central Luzon),2007,1,0,0,7.0,921462.0,492.0,0,0
+Region III (Central Luzon),2008,3,0,0,67.0,1528849.0,99174.0,0,0
+Region III (Central Luzon),2009,2,0,0,103.0,495236.0,55342.0,0,0
+Region III (Central Luzon),2010,2,0,0,66.0,2010071.0,275745.0,0,0
+Region III (Central Luzon),2011,1,0,0,25.0,1114085.0,2655.0,0,0
+Region III (Central Luzon),2012,2,0,0,1.0,1556.0,0.0,0,0
+Region III (Central Luzon),2013,2,1,0,71.0,1855640.0,133154.0,0,0
+Region III (Central Luzon),2014,1,0,0,22.0,2052157.0,75783.0,0,0
+Region III (Central Luzon),2015,2,0,0,2.0,6261.0,1300.0,0,0
+Region III (Central Luzon),2016,0,1,0,19.0,1300000.0,0.0,0,0
+Region III (Central Luzon),2017,1,0,0,0.0,3400.0,0.0,0,0
+Region III (Central Luzon),2021,0,1,0,2.0,38160.0,25000.0,0,0
+Region III (Central Luzon),2022,1,0,0,0.0,103602.0,0.0,0,0
+Region IV-A (CALABARZON),2004,1,0,0,35.0,1058849.0,0.0,0,0
+Region IV-A (CALABARZON),2009,3,0,0,23.0,684764.0,6303.0,0,0
+Region IV-A (CALABARZON),2011,2,0,0,20.0,10890.0,59.0,0,0
+Region IV-A (CALABARZON),2012,1,0,0,4.0,0.0,3000.0,0,0
+Region IV-A (CALABARZON),2013,0,1,0,31.0,3096422.0,2190000.0,1,0
+Region IV-A (CALABARZON),2014,1,0,0,2.0,683.0,0.0,0,0
+Region IV-A (CALABARZON),2016,0,1,0,26.0,1263098.0,9320.0,0,0
+Region IV-A (CALABARZON),2017,2,0,0,26.0,16449.0,22792.0,0,0
+Region IV-A (CALABARZON),2018,1,0,0,5.0,1709511.0,19000.0,0,0
+Region IV-A (CALABARZON),2020,0,0,0,1.0,736802.0,66000.0,0,0
+Region IV-A (CALABARZON),2022,2,0,0,17.0,920945.0,74946.0,0,0
+Region IX (Zamboanga Peninsula),2011,1,0,0,43.0,403230.0,34452.0,0,0
+Region IX (Zamboanga Peninsula),2012,1,0,0,4.0,7921.0,0.0,0,0
+Region V (Bicol Region),2004,4,0,0,1770.0,1790905.0,119200.0,1,0
+Region V (Bicol Region),2005,1,0,0,16.0,20000.0,2000.0,0,0
+Region V (Bicol Region),2006,1,0,0,1399.0,2606366.0,66400.0,1,0
+Region V (Bicol Region),2007,2,0,0,32.0,837151.0,5492.0,0,0
+Region V (Bicol Region),2009,2,0,0,68.0,1232777.0,41004.0,0,0
+Region V (Bicol Region),2010,1,0,0,146.0,599635.0,8675.0,0,0
+Region V (Bicol Region),2011,1,0,0,20.0,1732705.0,12869.0,0,0
+Region V (Bicol Region),2012,0,0,0,30.0,3158.0,0.0,0,0
+Region V (Bicol Region),2014,0,0,0,0.0,60545.0,0.0,0,0
+Region V (Bicol Region),2015,1,0,0,51.0,2898590.0,210985.0,0,0
+Region V (Bicol Region),2016,2,0,0,8.0,1033424.0,62180.0,0,0
+Region V (Bicol Region),2017,1,0,0,6.0,305.0,0.0,0,0
+Region V (Bicol Region),2018,0,0,0,0.0,86056.0,3564.0,0,0
+Region V (Bicol Region),2019,1,0,0,0.0,3000.0,0.0,0,0
+Region V (Bicol Region),2020,0,0,1,1.0,4980.0,2500.0,0,0
+Region V (Bicol Region),2022,1,0,0,0.0,7616.0,0.0,0,0
+Region V (Bicol Region),2023,0,0,0,0.0,39024.0,0.0,0,0
+Region V (Bicol Region),2024,1,0,0,15.0,3967014.0,100000.0,0,0
+Region VI (Western Visayas),2006,1,0,0,228.0,3842406.0,113000.0,0,0
+Region VI (Western Visayas),2007,1,0,0,2.0,30000.0,0.0,0,0
+Region VI (Western Visayas),2009,1,0,0,512.0,4478491.0,585379.0,1,0
+Region VI (Western Visayas),2011,1,0,0,103.0,3030846.0,344173.0,0,0
+Region VI (Western Visayas),2012,0,2,0,123.0,4456560.0,74330.0,0,0
+Region VI (Western Visayas),2013,1,0,0,5.0,72696.0,0.0,0,0
+Region VI (Western Visayas),2014,1,0,0,4.0,431086.0,19183.0,0,0
+Region VI (Western Visayas),2017,0,1,0,0.0,8000.0,0.0,0,0
+Region VI (Western Visayas),2021,1,0,0,3.0,8048.0,240.0,0,0
+Region VI (Western Visayas),2023,1,0,0,1.0,30501.0,0.0,0,0
+Region VII (Central Visayas),2007,0,1,0,11.0,16463.0,2520.0,0,0
+Region VII (Central Visayas),2009,1,0,0,1.0,95700.0,0.0,0,0
+Region VII (Central Visayas),2012,0,0,1,113.0,320277.0,8900.0,0,0
+Region VII (Central Visayas),2013,0,0,1,230.0,3222224.0,51459.0,0,0
+Region VII (Central Visayas),2022,1,0,0,158.0,3323291.0,45569.0,0,0
+Region VII (Central Visayas),2024,1,0,0,6.0,96061.0,20000.0,0,0
+Region VIII Eastern Visayas,2004,1,0,0,7.0,4504.0,0.0,0,0
+Region VIII Eastern Visayas,2005,1,0,0,18.0,11.0,0.0,0,0
+Region VIII Eastern Visayas,2006,2,0,0,1220.0,382993.0,5531.0,1,0
+Region VIII Eastern Visayas,2008,1,0,0,19.0,474.0,0.0,0,0
+Region VIII Eastern Visayas,2009,1,0,0,16.0,110405.0,4281.0,0,0
+Region VIII Eastern Visayas,2011,2,0,0,121.0,1538316.0,94517.0,0,0
+Region VIII Eastern Visayas,2012,1,0,1,25.0,270485.0,8770.0,0,0
+Region VIII Eastern Visayas,2013,2,0,0,7361.0,16110466.0,10001000.0,1,1
+Region VIII Eastern Visayas,2014,1,0,0,111.0,4654966.0,820576.0,1,0
+Region VIII Eastern Visayas,2015,2,0,0,48.0,308938.0,136217.0,0,0
+Region VIII Eastern Visayas,2016,2,0,0,24.0,1902213.0,103661.0,0,0
+Region VIII Eastern Visayas,2018,2,0,0,194.0,1269363.0,411753.0,0,0
+Region VIII Eastern Visayas,2020,4,0,0,70.0,4823799.0,621681.0,1,0
+Region VIII Eastern Visayas,2021,2,2,0,26.0,630977.0,0.0,0,0
+Region VIII Eastern Visayas,2023,0,1,0,2.0,1157488.0,2160.0,0,0
+Region X (Northern Mindanao),2006,0,0,0,6.0,1200.0,0.0,0,0
+Region X (Northern Mindanao),2007,1,0,0,20.0,35333.0,1000.0,0,0
+Region X (Northern Mindanao),2011,0,0,1,5.0,33.0,0.0,0,0
+Region X (Northern Mindanao),2012,0,0,1,0.0,4001.0,0.0,0,0
+Region X (Northern Mindanao),2013,0,1,0,10.0,507769.0,2800.0,0,0
+Region X (Northern Mindanao),2015,1,1,0,9.0,66772.0,114.0,0,0
+Region X (Northern Mindanao),2018,0,1,0,11.0,180000.0,0.0,0,0
+Region X (Northern Mindanao),2019,0,0,0,333.0,22967.0,0.0,0,0
+Region X (Northern Mindanao),2022,0,0,0,5.0,11712.0,0.0,0,0
+Region X (Northern Mindanao),2024,1,0,0,191.0,9652739.0,373000.0,0,0
+Region XI (Davao Region),2004,0,1,0,7.0,20000.0,0.0,0,0
+Region XI (Davao Region),2006,0,3,0,28.0,470618.0,4158.0,0,0
+Region XI (Davao Region),2007,0,1,0,9.0,24508.0,4080.0,0,0
+Region XI (Davao Region),2008,0,3,0,32.0,37603.0,619.0,0,0
+Region XI (Davao Region),2009,0,1,0,32.0,505118.0,22960.0,0,0
+Region XI (Davao Region),2010,0,1,0,6.0,46713.0,3156.0,0,0
+Region XI (Davao Region),2011,1,2,0,36.0,1400872.0,189978.0,0,0
+Region XI (Davao Region),2012,1,1,0,1980.0,6335257.0,898352.0,1,0
+Region XI (Davao Region),2013,1,0,0,1.0,10597.0,0.0,0,0
+Region XI (Davao Region),2017,0,1,0,13.0,334000.0,0.0,0,0
+Region XI (Davao Region),2019,0,0,2,24.0,420590.0,0.0,0,0
+Region XI (Davao Region),2021,0,2,0,0.0,27446.0,0.0,0,0
+Region XI (Davao Region),2022,1,0,0,346.0,2298788.0,41556.0,0,0
+Region XI (Davao Region),2023,1,1,1,13.0,450727.0,30615.0,0,0
+Region XI (Davao Region),2024,0,0,0,150.0,2967382.0,115110.0,0,0
+Region XII (SOCCSKSARGEN),2008,2,0,0,645.0,4793850.0,284974.0,1,0
+Region XII (SOCCSKSARGEN),2009,1,0,1,501.0,4902155.0,237579.0,1,0
+Region XII (SOCCSKSARGEN),2011,0,1,0,31.0,121005.0,251.0,0,0
+Region XII (SOCCSKSARGEN),2012,1,0,0,58.0,949086.0,9821.0,0,0
+Region XII (SOCCSKSARGEN),2019,0,0,0,0.0,16000.0,25600.0,0,0
+Region XIII (Caraga),2004,1,0,0,28.0,385012.0,19667.0,0,0
+Region XIII (Caraga),2007,1,0,0,1.0,64000.0,0.0,0,0
+Region XIII (Caraga),2008,1,1,0,30.0,50000.0,16000.0,0,0
+Region XIII (Caraga),2009,2,1,0,51.0,807555.0,9254.0,0,0
+Region XIII (Caraga),2010,0,1,0,849.0,2097312.0,47489.0,1,0
+Region XIII (Caraga),2011,3,3,0,1501.0,2277942.0,50773.0,1,0
+Region XIII (Caraga),2012,1,1,0,65.0,138969.0,2339.0,0,0
+Region XIII (Caraga),2013,1,2,0,37.0,570876.0,39668.0,0,0
+Region XIII (Caraga),2014,5,0,0,187.0,5930091.0,147357.0,0,0
+Region XIII (Caraga),2015,0,0,0,0.0,181687.0,84399.0,0,0
+Region XIII (Caraga),2016,1,0,0,0.0,14309.0,0.0,0,0
+Region XIII (Caraga),2017,2,1,1,117.0,3541534.0,97375.0,0,0
+Region XIII (Caraga),2018,2,0,0,3.0,338776.0,15362.0,0,0
+Region XIII (Caraga),2019,2,0,0,4.0,2660718.0,109151.0,0,0
+Region XIII (Caraga),2020,1,0,0,9.0,36032.0,2293.0,0,0
+Region XIII (Caraga),2021,4,0,0,530.0,12036988.0,1013995.0,1,0
+Region XIII (Caraga),2022,0,1,0,70.0,600016.0,11000.0,0,0
+Region XIII (Caraga),2023,1,2,1,71.0,3323065.0,58125.0,0,0
+Region XIII (Caraga),2024,0,1,0,21.0,1228014.0,30000.0,0,0
