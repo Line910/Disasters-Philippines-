@@ -14,9 +14,15 @@ from sklearn.metrics import mean_absolute_error, r2_score
 PROCESSED_DIR = PROCESSED_DATA_DIR
 
 
+def _dataset_path(target_group: str):
+    """Return the path of the group-specific regional ML dataset."""
+    tg = target_group.lower()
+    return PROCESSED_DIR / f"regional_ml_dataset_{tg}.csv"
+
+
 def _save_feature_importances(
-    importances,
-    feature_cols,
+    importances: np.ndarray,
+    feature_cols: list[str],
     model_name: str,
     target_group: str,
 ) -> None:
@@ -38,11 +44,12 @@ def _save_feature_importances(
     print(f"[saved] {out_path}")
 
 
-def load_or_build_dataset(target_group: str = "children") -> pd.DataFrame:
+def load_or_build_dataset(target_group: str) -> pd.DataFrame:
     """
-    Load regional_ml_dataset.csv si dispo, sinon le reconstruit.
+    Load regional_ml_dataset_<group>.csv if it exists,
+    otherwise rebuild it.
     """
-    path = PROCESSED_DIR / "regional_ml_dataset.csv"
+    path = _dataset_path(target_group)
     if path.exists():
         df = pd.read_csv(path)
     else:
@@ -50,11 +57,12 @@ def load_or_build_dataset(target_group: str = "children") -> pd.DataFrame:
     return df
 
 
-def run_regional_models(target_group: str = "children") -> None:
-    print(f"=== Regional modeling (target group: {target_group}) ===")
+def run_regional_models(target_group: str) -> None:
+    print(f"\n=== Regional modeling (target group: {target_group}) ===")
 
     df = load_or_build_dataset(target_group=target_group)
 
+    print(f"[loaded] {_dataset_path(target_group)}")
     print("Dataset shape:", df.shape)
     print("Years in dataset:", sorted(df["year"].unique()))
     print(df.head(), "\n")
@@ -63,11 +71,11 @@ def run_regional_models(target_group: str = "children") -> None:
     y_col = "poverty_change_3y"
 
     feature_cols = [
-        # pré-vulnérabilité
+        # pre-disaster vulnerability
         "poverty_t0",
         "gdp_growth",
         "unemployment_rate",
-        # intensité des désastres
+        # disaster intensity
         "typhoon_count",
         "flood_count",
         "earthquake_count",
@@ -76,7 +84,7 @@ def run_regional_models(target_group: str = "children") -> None:
         "total_damages",
         "severe_event",
         "haiyan_dummy",
-        # géographie
+        # geography
         "coastal",
     ]
     feature_cols = [c for c in feature_cols if c in df.columns]
@@ -97,7 +105,7 @@ def run_regional_models(target_group: str = "children") -> None:
     print(f"Train size: {X_train.shape[0]}, Test size: {X_test.shape[0]}\n")
 
     # -------- Helper to evaluate & print results --------
-    def evaluate_model(name, model):
+    def evaluate_model(name: str, model) -> None:
         model.fit(X_train, y_train)
         pred_train = model.predict(X_train)
         pred_test = model.predict(X_test)
@@ -116,7 +124,7 @@ def run_regional_models(target_group: str = "children") -> None:
             coef = pd.Series(model.coef_, index=feature_cols)
             print("\nCoefficients (sorted):")
             print(coef.sort_values(ascending=False))
-            # on sauvegarde le graphe avec les |coefficients|
+
             _save_feature_importances(
                 np.abs(model.coef_),
                 feature_cols,
@@ -148,4 +156,6 @@ def run_regional_models(target_group: str = "children") -> None:
 
 
 if __name__ == "__main__":
-    run_regional_models(target_group="children")
+    # For now your regional data supports women & children only
+    for group in ["women", "children"]:
+        run_regional_models(target_group=group)

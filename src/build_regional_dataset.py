@@ -1,21 +1,22 @@
-import pandas as pd
-from .config import DATA_DIR
+# src/build_regional_dataset.py
 
-# Where all processed CSVs live
-PROCESSED_DIR = DATA_DIR / "processed"
+import pandas as pd
+from .config import PROCESSED_DATA_DIR
+
+PROCESSED_DIR = PROCESSED_DATA_DIR
 PROCESSED_DIR.mkdir(exist_ok=True)
 
 
-def build_regional_ml_dataset(
-    target_group: str = "children",
-) -> pd.DataFrame:
+def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
     """
-    Build a regional panel ready for ML.
+    Build a regional panel ready for ML for a given target group.
+
+    target_group ∈ {"women", "children"}
 
     Each row = (region, year) corresponding to the *base* survey year
     (e.g. 2018 -> change up to 2021).
 
-    Columns (aim):
+    Output columns:
       - region, year
       - poverty_change_3y (target)
       - poverty_t0 (pre-disaster poverty)
@@ -30,15 +31,6 @@ def build_regional_ml_dataset(
     reg_path = PROCESSED_DIR / "regional_poverty_disaster_panel.csv"
     df = pd.read_csv(reg_path)
 
-    # This panel already has:
-    #  region, year, poverty_women, poverty_children,
-    #  next_year, years_to_next,
-    #  poverty_women_next, poverty_children_next,
-    #  d_pov_women_next, d_pov_children_next,
-    #  typhoon_count, flood_count, earthquake_count,
-    #  total_deaths, total_affected, total_damages,
-    #  severe_event, haiyan_dummy
-
     # ---------- 2) Add national macro variables ----------
     macro_path = PROCESSED_DIR / "phl_full_panel_2004_2024.csv"
     macro = pd.read_csv(macro_path)[["year", "gdp_growth", "unemployment_rate"]]
@@ -46,13 +38,18 @@ def build_regional_ml_dataset(
     # merge on year (national macro = same for all regions that year)
     df = df.merge(macro, on="year", how="left", validate="many_to_one")
 
-    # ---------- 3) Choose which group we model (women vs children) ----------
-    if target_group.lower() == "children":
+    # ---------- 3) Choose which group we model ----------
+    tg = target_group.lower()
+    if tg == "women":
+        pov_col = "poverty_women"
+        d_pov_col = "d_pov_women_next"
+    elif tg == "children":
         pov_col = "poverty_children"
         d_pov_col = "d_pov_children_next"
     else:
-        pov_col = "poverty_women"
-        d_pov_col = "d_pov_women_next"
+        raise ValueError(
+            f"Unsupported target_group: {target_group!r}. Use 'women' or 'children'."
+        )
 
     df = df.copy()
     df.rename(
@@ -67,7 +64,6 @@ def build_regional_ml_dataset(
     df = df[df["poverty_change_3y"].notna()].reset_index(drop=True)
 
     # ---------- 4) Add coastal dummy ----------
-    # Very simple rule: CAR is inland, all others coastal.
     INLAND_REGIONS = {"Cordillera Administrative Region (CAR)"}
     df["coastal"] = df["region"].apply(
         lambda r: 0 if r in INLAND_REGIONS else 1
@@ -91,15 +87,19 @@ def build_regional_ml_dataset(
         .reset_index(drop=True)
     )
 
-    # ---------- 6) Save ----------
-    out_path = PROCESSED_DIR / "regional_ml_dataset.csv"
+    # ---------- 6) Save a group-specific CSV ----------
+    out_path = PROCESSED_DIR / f"regional_ml_dataset_{tg}.csv"
     df_final.to_csv(out_path, index=False)
+    print(f"[saved] {out_path} shape={df_final.shape}")
 
     return df_final
 
 
 if __name__ == "__main__":
-    panel = build_regional_ml_dataset(target_group="children")
-    print(panel.head())
-    print("Shape:", panel.shape)
-    print("Years:", panel["year"].min(), "-", panel["year"].max())
+    for group in ["women", "children"]:
+        print(f"\n### Building regional ML dataset for {group} ###")
+        panel = build_regional_ml_dataset(target_group=group)
+        print(panel.head())
+        print("Shape:", panel.shape)
+        print("Years:", panel["year"].min(), "-", panel["year"].max())
+
