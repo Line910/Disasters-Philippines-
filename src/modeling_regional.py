@@ -25,15 +25,25 @@ def _save_feature_importances(
     feature_cols: list[str],
     model_name: str,
     target_group: str,
+    min_abs_importance: float = 1e-6,  # seuil pour filtrer
 ) -> None:
     """
     Save a horizontal bar plot of feature importances / coefficients
-    into results/.
+    into results/, en cachant les features avec importance ≈ 0.
     """
-    s = pd.Series(importances, index=feature_cols).sort_values(ascending=True)
+    s = pd.Series(importances, index=feature_cols)
+
+    # 1) On enlève les features avec importance quasi nulle
+    s_filtered = s[s.abs() > min_abs_importance]
+
+    # 2) Si tout a disparu (cas extrême), on garde tout pour ne pas avoir un graphe vide
+    if s_filtered.empty:
+        s_filtered = s
+
+    s_filtered = s_filtered.sort_values(ascending=True)
 
     plt.figure(figsize=(8, 5))
-    s.plot(kind="barh")
+    s_filtered.plot(kind="barh")
     plt.xlabel("Importance")
     plt.title(f"{model_name} – {target_group}")
     plt.tight_layout()
