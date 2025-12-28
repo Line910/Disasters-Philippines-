@@ -10,15 +10,12 @@ PROCESSED_DIR.mkdir(exist_ok=True)
 
 def build_full_panel():
     # Panel macro (poverty + GDP, déjà filtré PHL + 2004–2024)
-    macro = build_macro_panel()          # colonnes : year, poverty_rate, gdp_growth
+    macro = build_macro_panel()         
 
-    # Panel catastrophes annuelles
-    disasters = clean_emdat_phl()        # colonnes : year, event_count, total_deaths, ...
+    disasters = clean_emdat_phl()       
 
-    # Merge sur l'année
     full = macro.merge(disasters, on="year", how="left")
 
-    # Si certaines années n’ont pas de désastre : mettre 0
     disaster_cols = [c for c in full.columns if c not in ["year", "poverty_rate", "gdp_growth"]]
     full[disaster_cols] = full[disaster_cols].fillna(0)
 
