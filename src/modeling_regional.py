@@ -33,10 +33,8 @@ def _save_feature_importances(
     """
     s = pd.Series(importances, index=feature_cols)
 
-    # 1) On enlève les features avec importance quasi nulle
     s_filtered = s[s.abs() > min_abs_importance]
 
-    # 2) Si tout a disparu (cas extrême), on garde tout pour ne pas avoir un graphe vide
     if s_filtered.empty:
         s_filtered = s
 

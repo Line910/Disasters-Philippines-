@@ -31,11 +31,20 @@ def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
     reg_path = PROCESSED_DIR / "regional_poverty_disaster_panel.csv"
     df = pd.read_csv(reg_path)
 
+    # This panel should already contain:
+    #   region, year
+    #   poverty_women, poverty_children
+    #   next_year, years_to_next
+    #   poverty_women_next, poverty_children_next
+    #   d_pov_women_next, d_pov_children_next
+    #   typhoon_count, flood_count, earthquake_count
+    #   total_deaths, total_affected, total_damages
+    #   severe_event, haiyan_dummy
+
     # ---------- 2) Add national macro variables ----------
     macro_path = PROCESSED_DIR / "phl_full_panel_2004_2024.csv"
     macro = pd.read_csv(macro_path)[["year", "gdp_growth", "unemployment_rate"]]
 
-    # merge on year (national macro = same for all regions that year)
     df = df.merge(macro, on="year", how="left", validate="many_to_one")
 
     # ---------- 3) Choose which group we model ----------
@@ -47,9 +56,7 @@ def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
         pov_col = "poverty_children"
         d_pov_col = "d_pov_children_next"
     else:
-        raise ValueError(
-            f"Unsupported target_group: {target_group!r}. Use 'women' or 'children'."
-        )
+        raise ValueError(f"Unsupported target_group: {target_group!r}. Use 'women' or 'children'.")
 
     df = df.copy()
     df.rename(
@@ -65,9 +72,7 @@ def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
 
     # ---------- 4) Add coastal dummy ----------
     INLAND_REGIONS = {"Cordillera Administrative Region (CAR)"}
-    df["coastal"] = df["region"].apply(
-        lambda r: 0 if r in INLAND_REGIONS else 1
-    ).astype(int)
+    df["coastal"] = df["region"].apply(lambda r: 0 if r in INLAND_REGIONS else 1).astype(int)
 
     # ---------- 5) Keep only columns useful for ML ----------
     cols = [
@@ -102,4 +107,3 @@ if __name__ == "__main__":
         print(panel.head())
         print("Shape:", panel.shape)
         print("Years:", panel["year"].min(), "-", panel["year"].max())
-
