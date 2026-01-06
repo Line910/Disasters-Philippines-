@@ -90,7 +90,6 @@ def build_regional_full_panel() -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    # build the full regional panel and save it
     panel = build_regional_full_panel()
     print(panel.head())
     print("Shape:", panel.shape)

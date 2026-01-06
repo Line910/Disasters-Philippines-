@@ -3,14 +3,13 @@ import pandas as pd
 from .config import DATA_DIR
 from .load_data import load_emdat
 
-# Where we save cleaned files
+#  cleaned files
 PROCESSED_DIR = DATA_DIR / "processed"
 PROCESSED_DIR.mkdir(exist_ok=True)
 
 
-# ------------------ helpers ------------------ #
+# helpers  #
 
-# Map any geographic text to a Philippines region name
 REGION_KEYWORDS = {
     "NATIONAL CAPITAL": "National Capital Region (NCR)",
     "CORDILLERA": "Cordillera Administrative Region (CAR)",
@@ -37,7 +36,7 @@ def _assign_region(emdat: pd.DataFrame) -> pd.Series:
     Use Region / Location / Admin Units text to guess the PH administrative region.
     Very simple rule-based mapping using keyword search.
     """
-    # Combine geographic text into one big string per row
+ 
     geo = (
         emdat[["Region", "Location", "Admin Units"]]
         .astype(str)
@@ -45,7 +44,6 @@ def _assign_region(emdat: pd.DataFrame) -> pd.Series:
         .str.upper()
     )
 
-    # Start with NA
     region = pd.Series(pd.NA, index=emdat.index, dtype="object")
 
     for key, reg_name in REGION_KEYWORDS.items():
@@ -55,7 +53,7 @@ def _assign_region(emdat: pd.DataFrame) -> pd.Series:
     return region
 
 
-# ------------------ main builder ------------------ #
+# main builder #
 
 def build_regional_disaster_panel() -> pd.DataFrame:
     """
@@ -74,7 +72,7 @@ def build_regional_disaster_panel() -> pd.DataFrame:
     emdat = emdat[(emdat["Start Year"] >= 2004) & (emdat["Start Year"] <= 2024)].copy()
     emdat["year"] = emdat["Start Year"].astype(int)
 
-    # Assign regions
+    # regions
     emdat["region"] = _assign_region(emdat)
     emdat = emdat.dropna(subset=["region"]).copy()
 
@@ -83,7 +81,6 @@ def build_regional_disaster_panel() -> pd.DataFrame:
     affected_col = "Total Affected"
     damage_col = "Total Damage ('000 US$)"
 
-    # Make sure numeric columns are really numbers
     for col in [death_col, affected_col, damage_col]:
         emdat[col] = (
             emdat[col]
@@ -107,7 +104,7 @@ def build_regional_disaster_panel() -> pd.DataFrame:
         emdat["Event Name"].str.contains("HAIYAN", case=False, na=False)
     ).astype(int)
 
-    # Aggregate by region-year
+    #  by region-year
     grouped = (
         emdat
         .groupby(["region", "year"], as_index=False)

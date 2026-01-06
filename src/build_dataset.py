@@ -9,7 +9,7 @@ PROCESSED_DIR.mkdir(exist_ok=True)
 
 
 def build_full_panel():
-    # Panel macro (poverty + GDP, déjà filtré PHL + 2004–2024)
+    # Panel macro (poverty + GDP,  PHL + 2004–2024)
     macro = build_macro_panel()         
 
     disasters = clean_emdat_phl()       

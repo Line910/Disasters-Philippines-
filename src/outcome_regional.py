@@ -69,7 +69,7 @@ def build_regional_outcome_dataset(target_group: str = "children") -> pd.DataFra
 
 
 if __name__ == "__main__":
-    # Simple standalone run for checking
+    #  checking
     outcome = build_regional_outcome_dataset(target_group="children")
     print(outcome.head(), "\n")
     print("Shape:", outcome.shape)

@@ -28,7 +28,6 @@ def build_national_outcome_panel(horizon: int = 3) -> pd.DataFrame:
     out["gdp_growth_pre"] = out["gdp_growth"]
 
     # ---- Disaster intensity (year t) ----
-    # You can later add logs, squared terms, etc.
     out["events"] = out["event_count"]
     out["deaths"] = out["total_deaths"]
     out["affected"] = out["total_affected"]

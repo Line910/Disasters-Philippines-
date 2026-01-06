@@ -5,6 +5,8 @@ from .config import DATA_DIR
 PROCESSED_DIR = DATA_DIR / "processed"
 
 
+
+
 def read_csv_any(filename: str) -> pd.DataFrame:
     """
     Generic CSV reader:
@@ -101,7 +103,7 @@ def load_regional_poverty_women() -> pd.DataFrame:
 
     # standardise columns
     df = df.rename(columns={
-        "poverty_rate": "poverty_women",     # or whatever the column is called
+        "poverty_rate": "poverty_women",    
     })
     return df[["region", "year", "poverty_women"]]
 
@@ -111,7 +113,7 @@ def load_regional_poverty_children() -> pd.DataFrame:
     df = pd.read_csv(path)
 
     df = df.rename(columns={
-        "poverty_rate": "poverty_children",  # or the real column name
+        "poverty_rate": "poverty_children", 
     })
     return df[["region", "year", "poverty_children"]]
 def load_regional_poverty_panel() -> pd.DataFrame:

@@ -41,13 +41,13 @@ def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
     #   total_deaths, total_affected, total_damages
     #   severe_event, haiyan_dummy
 
-    # ---------- 2) Add national macro variables ----------
+    # 2) Add national macro variables 
     macro_path = PROCESSED_DIR / "phl_full_panel_2004_2024.csv"
     macro = pd.read_csv(macro_path)[["year", "gdp_growth", "unemployment_rate"]]
 
     df = df.merge(macro, on="year", how="left", validate="many_to_one")
 
-    # ---------- 3) Choose which group we model ----------
+    # 3) Choose which group we model 
     tg = target_group.lower()
     if tg == "women":
         pov_col = "poverty_women"
@@ -61,20 +61,19 @@ def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
     df = df.copy()
     df.rename(
         columns={
-            pov_col: "poverty_t0",           # pre-disaster poverty
-            d_pov_col: "poverty_change_3y",  # Δpoverty over ~3 years
+            pov_col: "poverty_t0",           
+            d_pov_col: "poverty_change_3y",  
         },
         inplace=True,
     )
 
-    # keep only rows where we actually observe the next survey
     df = df[df["poverty_change_3y"].notna()].reset_index(drop=True)
 
-    # ---------- 4) Add coastal dummy ----------
+    #  4) Add coastal dummy 
     INLAND_REGIONS = {"Cordillera Administrative Region (CAR)"}
     df["coastal"] = df["region"].apply(lambda r: 0 if r in INLAND_REGIONS else 1).astype(int)
 
-    # ---------- 5) Keep only columns useful for ML ----------
+    #  5) Keep only columns useful for ML 
     cols = [
         "region", "year",
         "poverty_change_3y", "poverty_t0",
@@ -92,7 +91,7 @@ def build_regional_ml_dataset(target_group: str = "children") -> pd.DataFrame:
         .reset_index(drop=True)
     )
 
-    # ---------- 6) Save a group-specific CSV ----------
+    # 6) Save a group-specific CSV 
     out_path = PROCESSED_DIR / f"regional_ml_dataset_{tg}.csv"
     df_final.to_csv(out_path, index=False)
     print(f"[saved] {out_path} shape={df_final.shape}")

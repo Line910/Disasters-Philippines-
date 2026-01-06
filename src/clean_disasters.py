@@ -18,16 +18,13 @@ DAMAGES_COL = "Total Damage ('000 US$)"
 def clean_emdat_phl():
     df = load_emdat()
 
-    # Vérification rapide des colonnes
     print("Colonnes EMDAT:", list(df.columns))
 
-    # 1) garder seulement Philippines
     if COUNTRY_COL not in df.columns:
         raise ValueError(f"Colonne pays '{COUNTRY_COL}' introuvable dans EMDAT.")
 
     df = df[df[COUNTRY_COL] == "Philippines"]
 
-    # 2) gérer l'année
     if YEAR_COL not in df.columns:
         raise ValueError(f"Colonne année '{YEAR_COL}' introuvable dans EMDAT.")
 
@@ -35,15 +32,12 @@ def clean_emdat_phl():
     df = df.dropna(subset=[YEAR_COL])
     df[YEAR_COL] = df[YEAR_COL].astype(int)
 
-    # 3) filtrer la période 2004–2024 (config)
     df = df[(df[YEAR_COL] >= YEAR_MIN) & (df[YEAR_COL] <= YEAR_MAX)]
 
-    # 4) convertir les colonnes numériques si elles existent
     for col in [DEATHS_COL, AFFECTED_COL, DAMAGES_COL]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
 
-    # 5) agrégation annuelle
     agg_dict = {"event_count": (YEAR_COL, "size")}
 
     if DEATHS_COL in df.columns:
@@ -56,7 +50,6 @@ def clean_emdat_phl():
     yearly = df.groupby(YEAR_COL).agg(**agg_dict).reset_index()
     yearly = yearly.rename(columns={YEAR_COL: "year"})
 
-    # 6) sauvegarde
     out_path = PROCESSED_DIR / "disasters_phl_2004_2024.csv"
     yearly.to_csv(out_path, index=False)
 

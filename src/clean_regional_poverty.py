@@ -70,7 +70,6 @@ def _read_regional_semicolon_table(filename: str, value_name: str) -> pd.DataFra
             continue
 
         # skip national total if you only want regions
-        # (enlève ce if si tu veux garder "PHILIPPINES")
         if region.upper().startswith("PHILIPPINES"):
             continue
 
@@ -81,7 +80,7 @@ def _read_regional_semicolon_table(filename: str, value_name: str) -> pd.DataFra
             if not value:
                 continue
 
-            # convert "23,4" -> 23.4
+          
             value = value.replace(",", ".")
             try:
                 val_float = float(value)
@@ -111,7 +110,6 @@ def build_regional_poverty_panel() -> pd.DataFrame:
         region, year, poverty_women, poverty_children
     """
 
-    # adapte ces noms si tes fichiers s'appellent un peu différemment
     women = _read_regional_semicolon_table(
         "regional_poverty_women.csv", "poverty_women"
     )
@@ -126,7 +124,7 @@ def build_regional_poverty_panel() -> pd.DataFrame:
         how="outer",
     ).sort_values(["region", "year"])
 
-    # garde seulement les années dans le range global
+
     panel = panel[(panel["year"] >= YEAR_MIN) & (panel["year"] <= YEAR_MAX)]
 
     out_path = PROCESSED_DIR / "regional_poverty_phl.csv"

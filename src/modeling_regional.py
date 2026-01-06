@@ -25,7 +25,7 @@ def _save_feature_importances(
     feature_cols: list[str],
     model_name: str,
     target_group: str,
-    min_abs_importance: float = 1e-6,  # seuil pour filtrer
+    min_abs_importance: float = 1e-6,  
 ) -> None:
     """
     Save a horizontal bar plot of feature importances / coefficients
@@ -164,6 +164,6 @@ def run_regional_models(target_group: str) -> None:
 
 
 if __name__ == "__main__":
-    # For now your regional data supports women & children only
+    # regional data supports women & children only
     for group in ["women", "children"]:
         run_regional_models(target_group=group)
